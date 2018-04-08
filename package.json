@@ -5,7 +5,7 @@
   "homepage": "./",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
-    "commit": "git-cz",
+    "submit": "git-cz",
     "start": "npm run dev",
     "dev": "react-scripts start",
     "dev:electron": "concurrently 'BROWSER=none npm run dev' 'wait-on http://localhost:3000/ && ELECTRON_START_URL=http://localhost:3000 electron .'",
@@ -15,6 +15,23 @@
     "lint": "xo --fix",
     "test": "npm run test && react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "./**/*.{js,jsx,json,css}": [
+        "npm run lint",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "**/node_modules/**",
+      "**/.git/**"
+    ]
   },
   "config": {
     "commitizen": {
@@ -38,16 +55,23 @@
     "extends": null
   },
   "xo": {
-		"extends": "xo-react",
+    "extends": "xo-react",
     "semicolon": false,
     "space": 2,
-    "envs": ["node", "browser", "es6", "serviceworker"],
-    "globals": ["it"],
+    "envs": [
+      "node",
+      "browser",
+      "es6",
+      "serviceworker"
+    ],
+    "globals": [
+      "it"
+    ],
     "rules": {
       "import/no-unassigned-import": 0,
       "capitalized-comments": 0
     }
-	},
+  },
   "dependencies": {
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
@@ -61,6 +85,8 @@
     "electron-builder": "^20.8.1",
     "eslint-config-xo-react": "^0.16.0",
     "eslint-plugin-react": "^7.7.0",
+    "husky": "^0.15.0-rc.13",
+    "lint-staged": "^7.0.4",
     "wait-on": "^2.1.0",
     "xo": "^0.20.3"
   }

@@ -1,20 +1,19 @@
 {
   "name": "usthing-cape",
   "version": "0.1.0",
-  "main": "public/electron.js",
-  "homepage": "./",
+  "main": "./electron.js",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "submit": "git-cz",
     "start": "npm run dev",
-    "dev": "react-scripts start",
-    "dev:electron": "concurrently 'BROWSER=none npm run dev' 'wait-on http://localhost:3000/ && ELECTRON_START_URL=http://localhost:3000 electron .'",
+    "dev": "NODE_ENV=development clipped dev",
+    "//dev:electron": "concurrently 'npm run dev' 'wait-on http://localhost:8080/ && ELECTRON_START_URL=http://localhost:8080 electron .'",
+    "dev:electron": "concurrently 'npm run dev' 'ELECTRON_START_URL=http://localhost:8080 electron .'",
     "pack": "electron-builder --dir",
-    "build": "react-scripts build",
+    "build": "clipped build",
     "build:electron": "npm run build && electron-builder",
     "lint": "xo --fix",
-    "test": "npm run test && react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "echo No tests yet"
   },
   "husky": {
     "hooks": {
@@ -41,7 +40,7 @@
   "build": {
     "appId": "com.usthing.cape",
     "files": [
-      "public/**/*",
+      "electron.js",
       "build/**/*",
       "node_modules/**/*",
       "package.json"
@@ -74,10 +73,10 @@
   },
   "dependencies": {
     "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-scripts": "1.1.4"
+    "react-dom": "^16.3.1"
   },
   "devDependencies": {
+    "@clipped/preset-webpack4-frontend": "^0.4.3",
     "commitizen": "^2.9.6",
     "concurrently": "^3.5.1",
     "cz-conventional-changelog": "^2.1.0",

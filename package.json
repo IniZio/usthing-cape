@@ -1,0 +1,25 @@
+{
+  "name": "usthing-cape",
+  "version": "0.1.0",
+  "scripts": {
+    "commit": "git-cz",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+	"config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-scripts": "1.1.4"
+  },
+	"devDependencies": {
+		"commitizen": "^2.9.6",
+		"cz-conventional-changelog": "^2.1.0"
+	}
+}

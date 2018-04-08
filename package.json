@@ -12,7 +12,8 @@
     "pack": "electron-builder --dir",
     "build": "react-scripts build",
     "build:electron": "npm run build && electron-builder",
-    "test": "react-scripts test --env=jsdom",
+    "lint": "xo --fix",
+    "test": "npm run test && react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "config": {
@@ -36,6 +37,11 @@
     },
     "extends": null
   },
+  "xo": {
+		"extends": "xo-react",
+    "semicolon": false,
+    "space": 2
+	},
   "dependencies": {
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
@@ -47,6 +53,9 @@
     "cz-conventional-changelog": "^2.1.0",
     "electron": "^1.8.4",
     "electron-builder": "^20.8.1",
-    "wait-on": "^2.1.0"
+    "eslint-config-xo-react": "^0.16.0",
+    "eslint-plugin-react": "^7.7.0",
+    "wait-on": "^2.1.0",
+    "xo": "^0.20.3"
   }
 }

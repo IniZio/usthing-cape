@@ -1,14 +1,17 @@
 {
   "name": "usthing-cape",
   "version": "0.1.0",
-  "main": "src/electron.js",
+  "main": "public/electron.js",
   "homepage": "./",
   "scripts": {
+    "postinstall": "electron-builder install-app-deps",
     "commit": "git-cz",
     "start": "npm run dev",
     "dev": "react-scripts start",
     "dev:electron": "concurrently 'BROWSER=none npm run dev' 'wait-on http://localhost:3000/ && ELECTRON_START_URL=http://localhost:3000 electron .'",
+    "pack": "electron-builder --dir",
     "build": "react-scripts build",
+    "build:electron": "npm run build && electron-builder",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
@@ -16,6 +19,22 @@
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
+  },
+  "build": {
+    "appId": "com.usthing.cape",
+    "files": [
+      "public/**/*",
+      "build/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "publish": {
+      "provider": "github"
+    },
+    "extends": null
   },
   "dependencies": {
     "react": "^16.3.1",
@@ -27,6 +46,7 @@
     "concurrently": "^3.5.1",
     "cz-conventional-changelog": "^2.1.0",
     "electron": "^1.8.4",
+    "electron-builder": "^20.8.1",
     "wait-on": "^2.1.0"
   }
 }

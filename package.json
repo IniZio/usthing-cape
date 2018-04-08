@@ -1,14 +1,18 @@
 {
   "name": "usthing-cape",
   "version": "0.1.0",
+  "main": "src/electron.js",
+  "homepage": "./",
   "scripts": {
     "commit": "git-cz",
-    "start": "react-scripts start",
+    "start": "npm run dev",
+    "dev": "react-scripts start",
+    "dev:electron": "BROWSER=none npm run dev & ELECTRON_START_URL=http://localhost:3000 electron .",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-	"config": {
+  "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
@@ -18,8 +22,9 @@
     "react-dom": "^16.3.1",
     "react-scripts": "1.1.4"
   },
-	"devDependencies": {
-		"commitizen": "^2.9.6",
-		"cz-conventional-changelog": "^2.1.0"
-	}
+  "devDependencies": {
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
+    "electron": "^1.8.4"
+  }
 }

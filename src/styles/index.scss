@@ -9,9 +9,9 @@
  *
  * @import "tailwindcss/preflight";
  */
-/* @tailwind preflight; */
+@tailwind preflight;
 
-@import "~tailwindcss/dist/preflight.css";
+/* @import "~tailwindcss/dist/preflight.css"; */
 
 /**
  * This injects any component classes registered by plugins.
@@ -20,7 +20,8 @@
  *
  * @import "tailwindcss/components";
  */
-@import "~tailwindcss/dist/components.css";
+@tailwind components;
+/* @import "~tailwindcss/dist/components.css"; */
 
 /**
  * Here you would add any of your custom component classes; stuff that you'd
@@ -38,6 +39,9 @@
  * @import "components/forms";
  */
 
+/* Atoms */
+@import "atoms/button";
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -46,7 +50,8 @@
  *
  * @import "tailwindcss/utilities";
  */
-@import "~tailwindcss/dist/utilities.css";
+@tailwind utilities;
+/* @import "~tailwindcss/dist/utilities.css"; */
 
 /**
  * Here you would add any custom utilities you need that don't come out of the

@@ -5,7 +5,7 @@ const getPostcssOptions = () => ({
   // https://github.com/facebookincubator/create-react-app/issues/2677
   ident: 'postcss',
   plugins: [
-    require('tailwindcss')(path.resolve(__dirname, 'tailwind.config.js')),
+    require('tailwindcss')(path.resolve(__dirname, '../tailwind.config.js')),
     require('postcss-flexbugs-fixes'), // eslint-disable-line import/no-extraneous-dependencies
     require('autoprefixer')({ // eslint-disable-line import/no-extraneous-dependencies
       browsers: [
@@ -25,18 +25,32 @@ module.exports = {
       {
         test: /\.css$/,
         include: [
-          path.resolve(__dirname, 'src'),
-          path.resolve(__dirname, 'node_modules/tailwindcss')
+          path.resolve(__dirname, '../src'),
+          path.resolve(__dirname, '../node_modules/tailwindcss')
         ],
         use: [
           'style-loader',
           'css-loader',
           {
             loader: 'postcss-loader',
-            options: {
-              getPostcssOptions
-            }
+            options: getPostcssOptions()
           }
+        ]
+      },
+      {
+        test: /\.scss$/,
+        include: [
+          path.resolve(__dirname, '../src'),
+          path.resolve(__dirname, '../node_modules/tailwindcss')
+        ],
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: getPostcssOptions()
+          },
+          'sass-loader'
         ]
       }
     ]

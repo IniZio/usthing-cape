@@ -1,11 +1,15 @@
 button, .btn {
-   @apply .font-bold .py-2 .px-4 .rounded;
+   @apply .font-bold .py-2 .px-4 .border-primary .border-2  .rounded .text-primary .shadow .bg-primary .text-white;
+   transition: all 0.5s ease;
+   &:hover {
+      @apply .shadow-md;
+   }
 }
 
 .btn-primary {
-  @apply .bg-blue .text-white;
-}
-
-.btn-primary:hover {
-  @apply .bg-blue-dark;
+  @apply .border-0 .py-3 .text-white;
+  background: linear-gradient(to bottom, #4990e2, #4A6EE3);
+  &:hover {
+    @apply .shadow-lg;
+  }
 }

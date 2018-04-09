@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {BrowserRouter as Router} from 'react-router-util'
+import {Provider} from 'unstated'
 import './styles/index.scss'
 import App from './app'
 
@@ -9,7 +11,15 @@ import App from './app'
 // const ipcRenderer  = electron.ipcRenderer;
 
 const wearCape = () => {
-  ReactDOM.render(<App/>, document.getElementById('root'))
+  ReactDOM.render(
+    (
+      <Provider>
+        <Router>
+          <App/>
+        </Router>
+      </Provider>
+    ),
+    document.getElementById('root'))
 }
 
 wearCape()

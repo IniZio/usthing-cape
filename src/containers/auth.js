@@ -5,7 +5,8 @@ import {Container} from 'unstated'
 
 class AuthContainer extends Container {
   state = {
-    profile: null
+    profile: null,
+    isLoggedIn: true
   }
 
   constructor() {
@@ -23,7 +24,7 @@ class AuthContainer extends Container {
   // }
 
   async logout() {
-    this.setState({profile: null})
+    this.setState({isLoggedIn: null})
   }
 }
 

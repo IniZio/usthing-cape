@@ -13,6 +13,7 @@
     "build": "clipped build",
     "build:electron": "TARGET=electron npm run build && electron-builder",
     "lint": "xo --fix",
+    "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "echo No tests yet"
   },
   "husky": {
@@ -69,7 +70,10 @@
     "rules": {
       "import/no-unassigned-import": 0,
       "capitalized-comments": 0,
-      "quote-props": ["warn", "consistent"]
+      "quote-props": [
+        "warn",
+        "consistent"
+      ]
     }
   },
   "dependencies": {
@@ -78,6 +82,8 @@
   },
   "devDependencies": {
     "@clipped/preset-webpack4-frontend": "^0.4.3",
+    "@storybook/addon-actions": "^3.4.0",
+    "@storybook/react": "^3.4.0",
     "commitizen": "^2.9.6",
     "concurrently": "^3.5.1",
     "cz-conventional-changelog": "^2.1.0",

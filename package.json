@@ -11,7 +11,7 @@
     "dev:electron": "concurrently 'npm run dev' 'ELECTRON_START_URL=http://localhost:8080 electron .'",
     "pack": "electron-builder --dir",
     "build": "clipped build",
-    "build:electron": "npm run build && electron-builder",
+    "build:electron": "TARGET=electron npm run build && electron-builder",
     "lint": "xo --fix",
     "test": "echo No tests yet"
   },
@@ -68,7 +68,8 @@
     ],
     "rules": {
       "import/no-unassigned-import": 0,
-      "capitalized-comments": 0
+      "capitalized-comments": 0,
+      "quote-props": ["warn", "consistent"]
     }
   },
   "dependencies": {
@@ -86,6 +87,9 @@
     "eslint-plugin-react": "^7.7.0",
     "husky": "^0.15.0-rc.13",
     "lint-staged": "^7.0.4",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7",
+    "tailwindcss": "^0.5.2",
     "wait-on": "^2.1.0",
     "xo": "^0.20.3"
   }

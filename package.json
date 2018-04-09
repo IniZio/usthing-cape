@@ -55,8 +55,10 @@
     "extends": null
   },
   "xo": {
+    "parser": "babel-eslint",
     "extends": "xo-react",
     "semicolon": false,
+    "esnext": true,
     "space": 2,
     "envs": [
       "node",
@@ -77,18 +79,22 @@
     }
   },
   "dependencies": {
+    "auto-bind": "^1.2.0",
     "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "unstated": "^1.2.0"
   },
   "devDependencies": {
     "@clipped/preset-webpack4-frontend": "^0.4.3",
     "@storybook/addon-actions": "^3.4.0",
     "@storybook/react": "^4.0.0-alpha.1",
+    "babel-eslint": "^8.2.2",
     "commitizen": "^2.9.6",
     "concurrently": "^3.5.1",
     "cz-conventional-changelog": "^2.1.0",
     "electron": "^1.8.4",
     "electron-builder": "^20.8.1",
+    "eslint": "^4.19.1",
     "eslint-config-xo-react": "^0.16.0",
     "eslint-plugin-react": "^7.7.0",
     "husky": "^0.15.0-rc.13",

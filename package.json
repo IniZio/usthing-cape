@@ -80,11 +80,15 @@
   },
   "dependencies": {
     "auto-bind": "^1.2.0",
+    "classnames": "^2.2.5",
+    "md5": "^2.2.1",
+    "prop-types": "^15.6.1",
     "query-string": "^6.0.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-router-dom": "^4.2.2",
     "react-router-util": "^0.6.0",
+    "skygear": "^1.4.0",
     "unstated": "^1.2.0"
   },
   "devDependencies": {
@@ -103,6 +107,8 @@
     "husky": "^0.15.0-rc.13",
     "lint-staged": "^7.0.4",
     "node-sass": "^4.8.3",
+    "postcss-import": "^11.1.0",
+    "postcss-url": "^7.3.2",
     "sass-loader": "^6.0.7",
     "tailwindcss": "^0.5.2",
     "wait-on": "^2.1.0",

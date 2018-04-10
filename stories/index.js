@@ -7,8 +7,8 @@ import {Button} from '../src/primitives'
 
 storiesOf('Button', module)
   .add('Default', () => (
-    <Button onClick={action('clicked')} className="btn" type="button">Default Button</Button>
+    <Button onClick={action('clicked')} type="button">Default Button</Button>
   ))
   .add('Primary', () => (
-    <button onClick={action('clicked')} className="btn btn-primary" type="button">Hello Button</button>
+    <Button onClick={action('clicked')} type="button" primary>Hello Button</Button>
   ))

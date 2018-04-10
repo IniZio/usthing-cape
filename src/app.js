@@ -5,6 +5,7 @@ import queryString from 'query-string'
 
 import './app.css'
 import AuthContainer from './containers/auth'
+import LoginPage from './components/login'
 
 const App = withRouter(({location}) => (
   <Subscribe to={[AuthContainer]}>
@@ -24,7 +25,7 @@ const App = withRouter(({location}) => (
                 </div>
               ] :
               [
-                <Route key="login" path="/login" render={() => <h1>Login page</h1>}/>,
+                <Route key="login" path="/login" component={LoginPage}/>,
                 <Redirect
                   key="to-login"
                   to={`/login?redirect=${encodeURIComponent(location.pathname)}`}

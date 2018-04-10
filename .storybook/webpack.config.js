@@ -22,21 +22,21 @@ const getPostcssOptions = () => ({
 module.exports = {
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        include: [
-          path.resolve(__dirname, '../src'),
-          path.resolve(__dirname, '../node_modules/tailwindcss')
-        ],
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: getPostcssOptions()
-          }
-        ]
-      },
+      // {
+      //   test: /\.css$/,
+      //   include: [
+      //     path.resolve(__dirname, '../src'),
+      //     path.resolve(__dirname, '../node_modules/tailwindcss')
+      //   ],
+      //   use: [
+      //     'style-loader',
+      //     'css-loader',
+      //     {
+      //       loader: 'postcss-loader',
+      //       options: getPostcssOptions()
+      //     }
+      //   ]
+      // },
       {
         test: /\.scss$/,
         include: [

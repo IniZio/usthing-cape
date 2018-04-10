@@ -95,6 +95,7 @@
     "@clipped/preset-webpack4-frontend": "^0.4.3",
     "@storybook/addon-actions": "^3.4.0",
     "@storybook/react": "^4.0.0-alpha.1",
+    "autoprefixer": "^8.2.0",
     "babel-eslint": "^8.2.2",
     "commitizen": "^2.9.6",
     "concurrently": "^3.5.1",

@@ -1,5 +1,4 @@
 const path = require('path')
-const tailwindcss = require('tailwindcss')
 
 module.exports = async clipped => {
   clipped.config.dist = path.resolve(__dirname, 'build')
@@ -8,8 +7,17 @@ module.exports = async clipped => {
 
   await clipped.use(require('@clipped/preset-webpack4-frontend'))
 
+  // BUG: jointed corrupts postcss plugin e.g tailwindcss, therefore using postcss.config.js for options for now
+  clipped.config.webpack.module.rules.scss.use.postcss = require.resolve('postcss-loader')
+
   // Adds tailwind css
-  clipped.config.webpack['module.rules.css']
-    .set('use.postcss.options.plugins.tailwind', tailwindcss(path.resolve(__dirname, 'tailwind.config.js')))
-    .set('include.tailwind', path.resolve(__dirname, 'node_modules/tailwindcss'))
+  // clipped.config.webpack['module.rules.scss.use.postcss.options.plugins']
+  //   .use('tailwind', require('tailwindcss'), [path.resolve(__dirname, 'tailwind.config.js')], 0)
+
+  // clipped.config.webpack['module.rules.scss']
+  //   .set('include.tailwind', path.resolve(__dirname, 'node_modules/tailwindcss'))
+
+  // clipped.config.webpack['module.rules.css']
+  //   .add('use.postcss.options.plugins.tailwind', require('tailwindcss')(path.resolve(__dirname, 'tailwind.config.js')), 0)
+  //   .set('include.tailwind', path.resolve(__dirname, 'node_modules/tailwindcss'))
 }

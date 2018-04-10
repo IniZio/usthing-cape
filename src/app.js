@@ -4,6 +4,7 @@ import {Subscribe} from 'unstated'
 import queryString from 'query-string'
 
 import './app.css'
+import {Button} from './primitives'
 import AuthContainer from './containers/auth'
 import LoginPage from './components/login'
 
@@ -22,6 +23,7 @@ const App = withRouter(({location}) => (
                 />,
                 <div key="main">
                   <h1>Hello there</h1>
+                  <Button onClick={user.logout} primary>Logout</Button>
                 </div>
               ] :
               [

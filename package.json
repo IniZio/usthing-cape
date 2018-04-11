@@ -13,6 +13,7 @@
     "build": "clipped build",
     "build:electron": "TARGET=electron npm run build && electron-builder",
     "build:storybook": "build-storybook -o storybook",
+    "deploy:storybook": "storybook-to-ghpages",
     "lint": "xo --fix",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "echo No tests yet"

@@ -9,6 +9,8 @@
 # production
 /build
 /dist
+/storybook
+/.out
 
 # misc
 .DS_Store

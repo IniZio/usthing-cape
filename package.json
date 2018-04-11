@@ -12,6 +12,7 @@
     "pack": "electron-builder --dir",
     "build": "clipped build",
     "build:electron": "TARGET=electron npm run build && electron-builder",
+    "build:storybook": "build-storybook -o storybook",
     "lint": "xo --fix",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "echo No tests yet"
@@ -97,6 +98,7 @@
     "@clipped/preset-webpack4-frontend": "^0.4.3",
     "@storybook/addon-actions": "^3.4.0",
     "@storybook/react": "^4.0.0-alpha.1",
+    "@storybook/storybook-deployer": "^2.3.0",
     "autoprefixer": "^8.2.0",
     "babel-eslint": "^8.2.2",
     "commitizen": "^2.9.6",

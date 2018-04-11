@@ -4,7 +4,7 @@ import {action} from '@storybook/addon-actions'
 
 import '../src/styles/index.scss'
 import './styles.scss'
-import {Button, Input} from '../src/primitives'
+import {Button, Input, Form} from '../src/primitives'
 
 storiesOf('Button', module)
   .add('Default', () => (
@@ -26,6 +26,9 @@ storiesOf('Input', module)
   ))
   .add('Radio', () => (
     <Input type="radio"/>
+  ))
+  .add('Checkbox', () => (
+    <Input type="checkbox"/>
   ))
 
 storiesOf('Card', module)
@@ -53,4 +56,14 @@ storiesOf('Dropdown', module)
         <li><a href="#">Item</a></li>
       </ul>
     </div>
+  ))
+
+storiesOf('Form', module)
+  .add('Schema', () => (
+    <Form schema={[
+      {label: 'venue'},
+      {label: 'fee', type: 'number'},
+      {label: 'refundable', type: 'toggle'},
+      {type: 'submit', children: 'Submit'}
+    ]}/>
   ))

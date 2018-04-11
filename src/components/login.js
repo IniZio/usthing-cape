@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {Subscribe} from 'unstated'
 
-import {Button} from '../primitives'
+import {Form} from '../primitives'
 import AuthContainer from '../containers/auth'
 
 class Login extends Component {
@@ -23,26 +23,16 @@ class Login extends Component {
   render() {
     return (
       <div className="flex w-full h-screen justify-center items-center">
-        <form className="card w-auto" style={{width: '350px'}} onSubmit={this.handleLogin}>
-          <label htmlFor="username">Name</label>
-          <input
-            name="username"
-            value={this.state.username}
-            onChange={({target: {value: username}}) => this.setState({username})}
-          />
-          <label htmlFor="username">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={({target: {value: password}}) => this.setState({password})}
-          />
-          <div className="h-4"/>
-          <div className="flex">
-            <Button type="submit" primary>Login</Button>
-            <Button className="ml-auto" plain>Register</Button>
-          </div>
-        </form>
+        <Form
+          className="card w-auto"
+          // style={{minWidth: '350px'}}
+          onSubmit={this.handleLogin}
+          schema={[
+            {field: 'username'},
+            {field: 'password', type: 'password'},
+            {type: 'submit', children: 'Login'}
+          ]}
+        />
       </div>
     )
   }

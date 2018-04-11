@@ -1,7 +1,8 @@
 textarea {
-  @apply .border-grey-light .border .bg-white;
+  @apply .border-transparent .border .bg-grey-lighter .w-full .rounded .appearance-none;
   width: 100%;
   transition: all 0.2s ease;
+  resize: none;
   &:focus {
     @apply .border-primary;
   }

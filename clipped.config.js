@@ -16,6 +16,13 @@ module.exports = async clipped => {
     use: 'node-loader'
   }
 
+  clipped.config.webpack.set('module.rules.js.use.babel.options.plugins.ramda', [
+    require.resolve('babel-plugin-ramda'),
+    {
+      'useES': true
+    }
+  ])
+
   // Adds tailwind css
   // clipped.config.webpack['module.rules.scss.use.postcss.options.plugins']
   //   .use('tailwind', require('tailwindcss'), [path.resolve(__dirname, 'tailwind.config.js')], 0)

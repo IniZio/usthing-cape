@@ -2,18 +2,27 @@ input {
   @apply .border-transparent .border .p-4 .text-sm .bg-grey-lighter .w-full .rounded .appearance-none;
   vertical-align: middle;
   transition: all 0.2s ease;
+
+  &:hover {
+    @apply .border-grey-lighter;
+  }
+
   &:focus {
     @apply .border-primary;
   }
 
   // one-line text fields
-  &:not([type]), &[type=""], &[type="text"], &[type="password"] {
+  &:not([type]), &[type=""], &[type="text"], &[type="password"], &[type="number"] {
     @apply .h-10
   }
 
+  &[type="number"] {
+    @apply .py-0
+  }
+
   &[type="radio"] {
-    @apply .cursor-pointer;
-    width: fit-content;
+    @apply .cursor-pointer .w-4 .h-4;
+    // width: fit-content;
     border-radius: 50%;
     overflow: hidden;
     vertical-align: middle;
@@ -21,5 +30,20 @@ input {
     background-repeat: no-repeat;
     background-position: 50% 50%;
     border: 1px solid #ccc;
+
+    &:checked {
+      @apply .bg-primary
+    }
+  }
+
+  &[type="checkbox"] {
+    @apply .cursor-pointer .w-4 .h-4 .bg-transparent .border-grey;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+    &:checked {
+      @apply .bg-primary .border-primary;
+      // background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+    }
   }
 }

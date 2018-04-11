@@ -1,15 +1,28 @@
 button, .btn {
-   @apply .font-bold .py-2 .px-4 .border-primary .border-2  .rounded .text-primary .shadow .bg-primary .text-white;
+   @apply .font-bold .py-1 .px-4 .border-primary .border-2 .rounded .text-primary .shadow .bg-primary .text-white;
    transition: all 0.5s ease;
    &:hover {
       @apply .shadow-md;
    }
-}
 
-.btn-primary {
-  @apply .border-0 .py-3 .text-white;
-  background: linear-gradient(to bottom, #4990e2, #4A6EE3);
-  &:hover {
-    @apply .shadow-lg;
-  }
+   &.btn-primary {
+     @apply .border-0 .py-2 .text-white;
+     background: linear-gradient(to bottom, #49b4e2, #4990e2);
+     &:hover {
+       @apply .shadow-lg;
+     }
+   }
+
+   &.btn-inverted {
+     @apply .bg-white .text-primary .shadow-none;
+   }
+
+   &.btn-plain {
+     @extend .btn-inverted;
+     @apply .bg-transparent .border-transparent;
+   }
+
+   &.btn-small {
+     @apply .text-sm .py-1 .px-2
+   }
 }

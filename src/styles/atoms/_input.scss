@@ -1,0 +1,25 @@
+input {
+  @apply .border-transparent .border .p-4 .text-sm .bg-grey-lighter .w-full .rounded .appearance-none;
+  vertical-align: middle;
+  transition: all 0.2s ease;
+  &:focus {
+    @apply .border-primary;
+  }
+
+  // one-line text fields
+  &:not([type]), &[type=""], &[type="text"], &[type="password"] {
+    @apply .h-10
+  }
+
+  &[type="radio"] {
+    @apply .cursor-pointer;
+    width: fit-content;
+    border-radius: 50%;
+    overflow: hidden;
+    vertical-align: middle;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border: 1px solid #ccc;
+  }
+}

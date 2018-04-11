@@ -1,0 +1,46 @@
+.dropdown {
+  @apply .invisible .opacity-0 .absolute .z-50 .card .border-transparent .p-3 .text-sm .font-bold;
+  box-sizing: border-box;
+  min-width: 200px;
+  transition: visibility 0s linear 0.2s,opacity 0.2s linear;
+
+  &.dropdown-show {
+    @apply .visible .opacity-100;
+  }
+
+  & .dropdown-menu,
+  & ul,
+  & ol {
+    @apply .m-0 .p-0;
+    list-style: none;
+
+    // list item
+    & li {
+      @apply .h-16 .text-grey-darker .border-b-2 .border-transparent .cursor-pointer .align-middle .flex .items-center .border-grey-lightest;
+      transition: all .2s ease;
+    }
+
+    & li:hover {
+      @apply .border-grey-light;
+    }
+
+    & li.menu-header {
+      @apply .text-grey-darkest;
+    }
+
+    & li > a {
+      @apply .text-grey-dark .w-full .h-full .flex .items-center;
+    }
+
+    // list divider
+    & .menu-divider {
+      @apply .border-b .border-grey;
+    }
+  }
+}
+
+*:hover + .dropdown,
+.dropdown:hover {
+  @extend .dropdown-show;
+  transition-delay: 0s;
+}

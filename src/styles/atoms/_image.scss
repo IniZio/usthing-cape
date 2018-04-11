@@ -1,0 +1,6 @@
+img {
+  &.img-avatar {
+    @apply .shadow-md;
+    border-radius: 50%;
+  }
+}

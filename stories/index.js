@@ -3,12 +3,54 @@ import {storiesOf} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
 
 import '../src/styles/index.scss'
-import {Button} from '../src/primitives'
+import './styles.scss'
+import {Button, Input} from '../src/primitives'
 
 storiesOf('Button', module)
   .add('Default', () => (
-    <Button onClick={action('clicked')} type="button">Default Button</Button>
+    <Button onClick={action('clicked')}>Default Button</Button>
   ))
   .add('Primary', () => (
-    <Button onClick={action('clicked')} type="button" primary>Hello Button</Button>
+    <Button onClick={action('clicked')} primary>Primary Button</Button>
+  ))
+  .add('Inverted', () => (
+    <Button onClick={action('clicked')} inverted>Inverted Button</Button>
+  ))
+
+storiesOf('Input', module)
+  .add('Default', () => (
+    <Input onChange={action('changed')} onFocus={action('focused')}/>
+  ))
+  .add('Multi-line', () => (
+    <Input multiLine/>
+  ))
+  .add('Radio', () => (
+    <Input type="radio"/>
+  ))
+
+storiesOf('Card', module)
+  .add('Default', () => (
+    <div className="card w-1/4">ABC</div>
+  ))
+
+storiesOf('Navbar', module)
+  .add('Default', () => (
+    <nav className="navbar">
+      <Input className="w-48 ml-auto"/>
+    </nav>
+  ))
+
+storiesOf('Dropdown', module)
+  .add('Visible', () => (
+    <div className="dropdown dropdown-show">
+      <ul className="dropdown-menu">
+        <li className="menu-active"><a href="#">Active</a></li>
+        <li><a href="#">Item</a></li>
+        <li className="menu-header">Header</li>
+        <li><a href="#">Item</a></li>
+        <li><a href="#">Item</a></li>
+        <li className="menu-divider"/>
+        <li><a href="#">Item</a></li>
+      </ul>
+    </div>
   ))

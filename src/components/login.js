@@ -22,24 +22,28 @@ class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleLogin}>
-        <label>
-          Name: <input
+      <div className="flex w-full h-screen justify-center items-center">
+        <form className="card w-auto" style={{width: '350px'}} onSubmit={this.handleLogin}>
+          <label htmlFor="username">Name</label>
+          <input
             name="username"
             value={this.state.username}
             onChange={({target: {value: username}}) => this.setState({username})}
           />
-        </label>
-        <label>
-          Password: <input
+          <label htmlFor="username">Password</label>
+          <input
             type="password"
             name="password"
             value={this.state.password}
             onChange={({target: {value: password}}) => this.setState({password})}
           />
-        </label>
-        <Button type="submit" primary>Login</Button>
-      </form>
+          <div className="h-4"/>
+          <div className="flex">
+            <Button type="submit" primary>Login</Button>
+            <Button className="ml-auto" plain>Register</Button>
+          </div>
+        </form>
+      </div>
     )
   }
 }

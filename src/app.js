@@ -4,7 +4,6 @@ import {Subscribe} from 'unstated'
 import queryString from 'query-string'
 
 import './app.css'
-import {Button} from './primitives'
 import AuthContainer from './containers/auth'
 import LoginPage from './components/login'
 
@@ -22,8 +21,16 @@ const App = withRouter(({location}) => (
                   to={decodeURIComponent(queryString.parse(location.search).redirect) || '/'}
                 />,
                 <div key="main">
-                  <h1>Hello there</h1>
-                  <Button onClick={user.logout} primary>Logout</Button>
+                  <nav className="navbar">
+                    <div className="flex ml-auto h-full items-center">
+                      {Boolean(user.state.profile) && <img className="img-avatar max-h-40p w-auto cursor-pointer" src={user.state.profile.image.url}/>}
+                      <div className="dropdown pin-r" style={{top: '5rem'}}>
+                        <ul className="dropdown-menu">
+                          <li><a href="#" onClick={user.logout}>Logout</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
                 </div>
               ] :
               [

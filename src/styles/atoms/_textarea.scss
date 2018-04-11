@@ -1,0 +1,8 @@
+textarea {
+  @apply .border-grey-light .border .bg-white;
+  width: 100%;
+  transition: all 0.2s ease;
+  &:focus {
+    @apply .border-primary;
+  }
+}

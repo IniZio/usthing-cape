@@ -1,7 +1,9 @@
 import Button from './button'
+import Input from './input'
 
 export {
-  Button
+  Button,
+  Input
 }
 
 export default null

@@ -41,6 +41,7 @@ module.exports = {
         test: /\.scss$/,
         include: [
           path.resolve(__dirname, '../src'),
+          path.resolve(__dirname, '../stories'),
           path.resolve(__dirname, '../node_modules/tailwindcss')
         ],
         use: [

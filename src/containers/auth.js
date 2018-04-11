@@ -1,6 +1,7 @@
 import md5 from 'md5'
 import autobind from 'auto-bind'
 import skygear from 'skygear'
+import keytar from 'keytar'
 import {Container} from 'unstated'
 
 import config from '../constants/config'
@@ -10,6 +11,7 @@ import config from '../constants/config'
 class AuthContainer extends Container {
   state = {
     profile: null,
+    password: null,
     isLoggedIn: false
   }
 
@@ -32,7 +34,10 @@ class AuthContainer extends Container {
         async () => {
           console.log('Skygear container is now ready for API calls')
           const profile = await skygear.auth.whoami()
-          console.log('profile: ', profile)
+          if (profile) {
+            const password = await keytar.getPassword(config.appName, profile.username)
+            this.setState({password})
+          }
           this.setState({profile, isLoggedIn: Boolean(profile)})
         },
         console.error
@@ -44,19 +49,23 @@ class AuthContainer extends Container {
     // await loginCAS(credentials)
     // await validateAdmin(credentials)
     // const [user] = await getITSCProfile(username)
-    let user = null
+    let profile = null
     try {
-      user = await skygear.auth.loginWithUsername(username, md5(username))
+      profile = await skygear.auth.loginWithUsername(username, md5(username))
     } catch (err) {
-      user = await skygear.auth.loginWithUsername(username, password)
+      profile = await skygear.auth.loginWithUsername(username, password)
     }
-    this.setState({isLoggedIn: true})
-    return user
+    if (config.isElectron) {
+      keytar.setPassword(config.appName, username, password)
+    }
+    this.setState({profile, password: config.isElectron ? password : null, isLoggedIn: true})
+    return profile
   }
 
   async logout() {
     await skygear.auth.logout()
-    this.setState({isLoggedIn: null})
+    keytar.deletePassword(config.appName, this.state.profile.username)
+    this.setState({profile: null, password: null, isLoggedIn: false})
   }
 }
 

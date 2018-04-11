@@ -81,6 +81,8 @@
   "dependencies": {
     "auto-bind": "^1.2.0",
     "classnames": "^2.2.5",
+    "is-electron": "^2.1.0",
+    "keytar": "^4.2.1",
     "md5": "^2.2.1",
     "prop-types": "^15.6.1",
     "query-string": "^6.0.0",
@@ -107,6 +109,7 @@
     "eslint-plugin-react": "^7.7.0",
     "husky": "^0.15.0-rc.13",
     "lint-staged": "^7.0.4",
+    "node-loader": "^0.6.0",
     "node-sass": "^4.8.3",
     "postcss-import": "^11.1.0",
     "postcss-url": "^7.3.2",

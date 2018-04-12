@@ -1,6 +1,5 @@
 img {
   &.img-avatar {
-    @apply .shadow;
-    border-radius: 50%;
+    @apply .shadow .rounded-full;
   }
 }

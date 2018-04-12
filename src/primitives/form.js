@@ -10,8 +10,8 @@ const defaultMapper = spec => {
     case 'image': return p => <Input {...p} type="file"/>
     case 'label': return p => <label {...p}/>
     case 'toggle': return p => <Input {...p} type="checkbox"/>
-    case 'button': return p => <Button {...p}/>
-    case 'submit': return p => <Button {...p} primary/>
+    case 'button':
+    case 'submit': return p => <Button {...p} primary={spec.type === 'submit'}/>
     default: return p => <Input {...p}/>
   }
 }
@@ -53,17 +53,19 @@ class Form extends Component {
             const Section = (label || !(inline || stack)) ? p => <div {...p}/> : Fragment
             return (
               <Section key={field || key} className={classnames({'md:flex md:items-center': inline || !stack, 'mx-2': inline, 'my-6': !inline})}>
-                <Label htmlFor={field} className={classnames({'md:mx-2 md:w-2/6': inline || !stack})}>{label}</Label>
-                <Field
-                  name={field}
-                  value={this.state.form[field]}
-                  onChange={({target: {value}}) => {
-                    this.setState({form: {[field]: value}})
-                    this.props.onChange({...this.state.form, [field]: value})
-                  }}
-                  {...spec}
-                  className={classnames({'md:mx-3': inline || !stack})}
-                />
+                <Label htmlFor={field} className={classnames({'md:mx-2 md:w-1/3': inline || !stack})}>{label}</Label>
+                <div className={classnames({'md:mx-2 md:w-2/3': inline || !stack})}>
+                  <Field
+                    name={field}
+                    value={this.state.form[field]}
+                    onChange={({target: {value}}) => {
+                      this.setState({form: {[field]: value}})
+                      this.props.onChange({...this.state.form, [field]: value})
+                    }}
+                    {...spec}
+                    className={classnames({'md:mx-3': inline || !stack})}
+                  />
+                </div>
               </Section>
             )
           })

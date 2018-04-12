@@ -51,19 +51,56 @@ storiesOf('Dropdown', module)
         <li><a href="#">Item</a></li>
         <li className="menu-header">Header</li>
         <li><a href="#">Item</a></li>
-        <li><a href="#">Item</a></li>
-        <li className="menu-divider"/>
+        <li><a href="#" className="menu-divider">Item</a></li>
         <li><a href="#">Item</a></li>
       </ul>
     </div>
   ))
+  .add('Hover', () => (
+    <div>
+      <Button primary>Hover me</Button>
+      <div className="dropdown">
+        <ul className="dropdown-menu">
+          <li className="menu-active"><a href="#">Active</a></li>
+          <li><a href="#">Item</a></li>
+          <li className="menu-header">Header</li>
+          <li><a href="#">Item</a></li>
+          <li><a href="#">Item</a></li>
+          <li><a href="#">Item</a></li>
+        </ul>
+      </div>
+    </div>
+  ))
+  .add('Click', () => (
+    <div>
+      <Button data-trigger="click" primary>Click me</Button>
+      <div className="dropdown">
+        <ul className="dropdown-menu">
+          <li className="menu-active"><a href="#">Active</a></li>
+          <li><a href="#">Item</a></li>
+          <li className="menu-header">Header</li>
+          <li><a href="#">Item</a></li>
+          <li><a href="#">Item</a></li>
+          <li><a href="#">Item</a></li>
+        </ul>
+      </div>
+    </div>
+  ))
+
+const schema = [
+  {label: 'venue'},
+  {label: 'fee', type: 'number'},
+  {label: 'refundable', type: 'toggle'},
+  {type: 'submit', children: 'Submit'}
+]
 
 storiesOf('Form', module)
-  .add('Schema', () => (
-    <Form schema={[
-      {label: 'venue'},
-      {label: 'fee', type: 'number'},
-      {label: 'refundable', type: 'toggle'},
-      {type: 'submit', children: 'Submit'}
-    ]}/>
+  .add('Default', () => (
+    <Form schema={schema}/>
+  ))
+  .add('Inline', () => (
+    <Form schema={schema} inline/>
+  ))
+  .add('Stack', () => (
+    <Form schema={schema} stack/>
   ))

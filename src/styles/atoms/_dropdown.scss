@@ -5,7 +5,7 @@
   transition: visiblity 0.5s linear, opacity 0.2s linear;
 
   &.dropdown-show {
-    @apply .visible .block .opacity-100;
+    @apply .block .visible .opacity-100;
   }
 
   & .dropdown-menu,
@@ -15,12 +15,12 @@
 
     // list item
     & li {
-      @apply .h-12 .text-grey-darker .border-b-2 .border-transparent .cursor-pointer .align-middle .flex .items-center .border-grey-lightest;
+      @apply .h-12 .text-grey-darker .border-b-2 .border-transparent .cursor-pointer .align-middle .flex .items-center;
       transition: border .2s ease;
     }
 
     & li:hover {
-      @apply .border-grey-light;
+      @apply .border-grey-lightest;
     }
 
     & li:active {

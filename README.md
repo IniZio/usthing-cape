@@ -1,5 +1,9 @@
 # USThing Cape
 
+Component storybook: http://inizio.github.io/usthing-cape
+
+Website: http://usthing-cape.netlify.com/
+
 ## Development
 
 ```bash

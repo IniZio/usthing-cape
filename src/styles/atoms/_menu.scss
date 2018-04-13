@@ -1,0 +1,48 @@
+/* Make hovered element stand out */
+/*
+ol:hover > *:not(:hover),
+ul:hover > *:not(:hover) {
+  @apply .opacity-75;
+}
+
+ol > *,
+ul > * {
+  transition: opacity 0.1s ease;
+}
+*/
+
+ol,
+ul {
+  & > li > a {
+    @apply .text-grey-darker;
+  }
+}
+
+ol.menu-horizontal,
+ul.menu-horizontal {
+  @apply .list-reset .flex .relative .items-center .cursor-pointer;
+
+  justify-content: space-between;
+
+  & > li {
+    @apply .mx-4 .px-2;
+    position: relative;
+    text-decoration: none;
+  }
+
+  & > li:before {
+    @apply .invisible .absolute .w-full .h-px .bg-grey-darker;
+    content: "";
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+  }
+  & > li:hover:before {
+    @apply .visible;
+    transform: scaleX(1.2);
+  }
+  & > li:active:before {
+    @apply .bg-grey-darkest;
+  }
+}

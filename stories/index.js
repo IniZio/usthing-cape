@@ -87,6 +87,15 @@ storiesOf('Dropdown', module)
     </div>
   ))
 
+storiesOf('Menu', module)
+  .add('Nav', () => (
+    <ul className="menu-horizontal">
+      <li>Item one</li>
+      <li>Item two</li>
+      <li>Item three</li>
+    </ul>
+  ))
+
 const schema = [
   {label: 'venue'},
   {label: 'fee', type: 'number'},

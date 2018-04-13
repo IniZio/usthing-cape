@@ -25,20 +25,23 @@ const App = withRouter(({location}) => (
                 <div key="main">
                   <nav className="navbar">
                     <Input className="w-48 focus:w-2/5 hover:w-2/5" placeholder="Search..."/>
-                    <div className="relative ml-auto h-full items-center cursor-pointer">
-                      <div className="flex h-full px-3 items-center" data-trigger="click">
+                    <ul className="menu-horizontal text-sm font-extrabold ml-auto h-full">
+                      <li className="flex h-full items-center">
+                        <a>FBS</a>
+                      </li>
+                      <li className="flex h-full items-center" data-trigger="click">
                         <img
                           className="img-avatar max-h-60p w-auto cursor-pointer"
                           src={R.path('profile.image.url'.split('.'), user.state) || `https://api.adorable.io/avatars/71/${user.state.username}@usthing.png`}
                         />
-                      </div>
-                      <div className="dropdown pin-r">
+                      </li>
+                      <div className="dropdown pin-r" style={{top: '100%'}}>
                         <ul className="dropdown-menu">
                           {R.path('profile.username', user.state) && <li className="menn-header">{R.path('profile.username', user.state)}</li>}
                           <li><a href="#" onClick={user.logout}>Logout</a></li>
                         </ul>
                       </div>
-                    </div>
+                    </ul>
                   </nav>
                 </div>
               ] :

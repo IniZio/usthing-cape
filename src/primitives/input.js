@@ -2,9 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-const Input = ({multiLine, className, ...rest}) => (
+const Input = ({multiLine, className, readonly, ...rest}) => (
   multiLine ?
-    <textarea {...rest}/> :
+    <textarea className={
+      classnames(
+        {
+        },
+        className
+      )
+    } {...rest}/> :
     <input
       type="text"
       className={
@@ -16,17 +22,20 @@ const Input = ({multiLine, className, ...rest}) => (
         )
       }
       {...rest}
+      readOnly={readonly ? 'readonly' : ''}
     />
 )
 
 Input.defaultProps = {
   multiLine: false,
-  className: ''
+  className: '',
+  readonly: false
 }
 
 Input.propTypes = {
   multiLine: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  readonly: PropTypes.bool
 }
 
 export default Input

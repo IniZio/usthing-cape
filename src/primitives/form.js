@@ -53,8 +53,8 @@ class Form extends Component {
             const Section = (label || !(inline || stack)) ? p => <div {...p}/> : Fragment
             return (
               <Section key={field || key} className={classnames({'md:flex md:items-center': inline || !stack, 'mx-4': inline, 'my-6': !inline})}>
-                {(label || !(inline || stack)) && <Label htmlFor={field} className={classnames({'md:mx-2 md:w-1/3': !inline && !stack})}>{label}</Label>}
-                <div className={classnames({'md:mx-2 md:w-2/3': !inline && !stack})}>
+                {(label || !(inline || stack)) && <Label htmlFor={field} className={classnames({'md:mx-2 md:w-1/4': !inline && !stack})}>{label}</Label>}
+                <div className={classnames({'md:mx-2 md:w-3/4': !inline && !stack})}>
                   <Field
                     name={field}
                     value={this.state.form[field]}

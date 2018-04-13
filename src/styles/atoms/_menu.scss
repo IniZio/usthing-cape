@@ -28,6 +28,9 @@ ul.menu-horizontal {
     @apply .mx-4 .px-2;
     position: relative;
     text-decoration: none;
+    > a {
+      @apply .w-full .h-full .flex .items-center;
+    }
   }
 
   & > li:before {
@@ -40,7 +43,7 @@ ul.menu-horizontal {
   }
   & > li:hover:before {
     @apply .visible;
-    transform: scaleX(1.2);
+    transform: scaleX(1);
   }
   & > li:active:before {
     @apply .bg-grey-darkest;

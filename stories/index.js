@@ -19,10 +19,10 @@ storiesOf('Button', module)
 
 storiesOf('Input', module)
   .add('Default', () => (
-    <Input onChange={action('changed')} onFocus={action('focused')}/>
+    <Input onChange={action('changed')} onFocus={action('focused')} placeholder="Type something..." className="w-48"/>
   ))
   .add('Multi-line', () => (
-    <Input multiLine/>
+    <Input className="w-64" placeholder="Type something else..." multiLine/>
   ))
   .add('Radio', () => (
     <Input type="radio"/>

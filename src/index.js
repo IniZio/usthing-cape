@@ -10,11 +10,6 @@ if (config.isElectron && process.env.NOD_ENV === 'production') {
   require('offline-plugin/runtime').install()
 }
 
-// const electron = window.require('electron')
-
-// const fs = electron.remote.require('fs');
-// const ipcRenderer  = electron.ipcRenderer;
-
 const wearCape = () => {
   ReactDOM.render(
     (

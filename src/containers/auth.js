@@ -7,6 +7,12 @@ import config from '../constants/config'
 
 // import {loginCAS, getITSCProfile, validateAdmin} from '../services/api'
 
+let keytar = null
+
+if (config.isElectron) {
+  keytar = require('../helpers/electron').myRemote.keytar
+}
+
 class AuthContainer extends Container {
   state = {
     profile: null,
@@ -34,8 +40,8 @@ class AuthContainer extends Container {
         async () => {
           console.log('Skygear container is now ready for API calls')
           const profile = await skygear.auth.whoami()
-          if (profile && config.isElectron) {
-            const password = await require('keytar').getPassword(config.appName, profile.username)
+          if (profile && profile.username && config.isElectron) {
+            const password = await keytar.getPassword(config.appName, profile.username)
             this.setState({password})
           }
           this.setState({profile})
@@ -55,8 +61,8 @@ class AuthContainer extends Container {
     } catch (err) {
       profile = await skygear.auth.loginWithUsername(username, password)
     }
-    if (config.isElectron) {
-      require('keytar').setPassword(config.appName, username, password)
+    if (profile && profile.username && config.isElectron) {
+      keytar.setPassword(config.appName, username, password)
     }
     console.log('profile: ', profile)
     this.setState({profile, password: config.isElectron ? password : null})
@@ -65,8 +71,8 @@ class AuthContainer extends Container {
 
   async logout() {
     await skygear.auth.logout()
-    if (config.isElectron) {
-      require('keytar').deletePassword(config.appName, this.state.profile.username)
+    if (this.state.profile && this.state.profile.username && config.isElectron) {
+      keytar.deletePassword(config.appName, this.state.profile.username)
     }
     this.setState({profile: null, password: null})
   }

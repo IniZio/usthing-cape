@@ -7,11 +7,7 @@ import config from '../constants/config'
 
 // import {loginCAS, getITSCProfile, validateAdmin} from '../services/api'
 
-let keytar = null
-
-if (config.isElectron) {
-  keytar = require('../helpers/electron').myRemote.keytar
-}
+const {keytar} = require('../helpers/electron').myRemote
 
 class AuthContainer extends Container {
   state = {

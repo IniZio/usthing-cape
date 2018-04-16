@@ -38,7 +38,7 @@ const App = withRouter(({location}) => (
                       <div className="dropdown pin-r" style={{top: '100%'}}>
                         <ul className="dropdown-menu">
                           {R.path('profile.username', user.state) && <li className="menn-header">{R.path('profile.username', user.state)}</li>}
-                          <li><a href="#" onClick={user.logout}>Logout</a></li>
+                          <li onClick={user.logout}>Logout</li>
                         </ul>
                       </div>
                     </ul>

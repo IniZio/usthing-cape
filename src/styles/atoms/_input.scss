@@ -1,7 +1,7 @@
 input,
 :read-write {
   @apply .border-transparent .border .p-4 .text-sm .bg-grey-lighter .w-full .rounded .appearance-none;
-  transition: border 0.2s ease, background 0.2s ease;
+  transition: border 0.2s ease, background 0.2s ease, width 0.4s ease, height 0.4s ease;
 
   &:hover {
     @apply .border-grey-lighter;

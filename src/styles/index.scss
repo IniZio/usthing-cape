@@ -83,12 +83,14 @@
 @import "atoms/image";
 @import "atoms/dropdown";
 @import "atoms/menu";
+@import "atoms/list";
 
 /* Molecules */
 
 
 /* Organisms */
 @import "organisms/navbar";
+@import "organisms/sidebar";
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

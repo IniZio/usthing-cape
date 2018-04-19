@@ -94,7 +94,7 @@
     "react-router-dom": "^4.2.2",
     "react-router-util": "^0.6.0",
     "skygear": "^1.4.0",
-    "unstated": "^1.2.0"
+    "unstated": "^2.0.2"
   },
   "devDependencies": {
     "@clipped/preset-webpack4-frontend": "^0.4.3",

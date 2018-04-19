@@ -1,0 +1,20 @@
+.sidebar {
+  @apply .bg-grey-lightest .text-grey-dark .h-screen .w-64 .py-4 .text-xs .font-medium;
+
+  .sidebar-item {
+    @apply .px-8 .w-full .text-grey-dark;
+    transition: background 0.2s ease;
+
+    &:hover {
+      @apply .bg-grey-lighter;
+    }
+
+    &:active {
+      @apply .bg-grey-light;
+    }
+  }
+
+  .sidebar-header {
+    @apply .px-8 .w-full .text-grey-darker .font-extrabold .text-sm;
+  }
+}

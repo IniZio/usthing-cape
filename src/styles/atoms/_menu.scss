@@ -14,7 +14,7 @@ ul > * {
 ol,
 ul {
   & > li > a {
-    @apply .text-grey-darker;
+    @apply .text-grey-darker .list-reset;
   }
 }
 

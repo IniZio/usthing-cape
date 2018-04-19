@@ -96,6 +96,25 @@ storiesOf('Menu', module)
     </ul>
   ))
 
+storiesOf('Sidebar', module)
+  .add('Default', () => (
+    <div className="sidebar">
+      <h3 className="sidebar-header flex items-center py-2 my-3 cursor-pointer" data-trigger="click">
+        <span>Anonymous</span>
+      </h3>
+      <div className="dropdown" style={{left: 30, marginTop: -10}}>
+        <ul className="dropdown-menu">
+          <li>Logout</li>
+        </ul>
+      </div>
+      <div className="h-4"/>
+      <div className="sidebar-header flex items-center py-1 mt-3">Modules</div>
+      <div className="sidebar-item flex items-center py-2">Home</div>
+      <div className="sidebar-item flex items-center py-2">FBS</div>
+      <div className="sidebar-item flex items-center py-2">Marketplace</div>
+    </div>
+  ))
+
 const schema = [
   {label: 'venue'},
   {label: 'fee', type: 'number'},

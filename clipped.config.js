@@ -33,4 +33,12 @@ module.exports = async clipped => {
   // clipped.config.webpack['module.rules.css']
   //   .add('use.postcss.options.plugins.tailwind', require('tailwindcss')(path.resolve(__dirname, 'tailwind.config.js')), 0)
   //   .set('include.tailwind', path.resolve(__dirname, 'node_modules/tailwindcss'))
+
+  clipped.hook('post-build')
+    .add('copy-netlify-redirect', async clipped => {
+      await clipped.copy([
+        {src: clipped.resolve('_redirects'), dest: path.join(clipped.config.dist, '_redirects')}
+      ])
+      console.log('Copied redirects')
+    })
 }

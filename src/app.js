@@ -22,7 +22,7 @@ const App = withRouter(({location}) => (
                   to={decodeURIComponent(queryString.parse(location.search).redirect) || '/'}
                 />,
                 <Route key="main">
-                  <div>
+                  <div className="flex">
                     <div className="sidebar">
                       <h3 className="sidebar-header flex items-center py-2 my-3 cursor-pointer" data-trigger="click">
                         <img
@@ -36,18 +36,19 @@ const App = withRouter(({location}) => (
                           <li onClick={user.logout}>Logout</li>
                         </ul>
                       </div>
-                      <div className="h-4"/>
-                      <div className="sidebar-header flex items-center py-1 mt-3">Modules</div>
+                      <div className="h-8"/>
+                      {/* <div className="sidebar-header flex items-center py-1 mt-3">Functions</div> */}
                       <Link to="/">
-                        <div className="sidebar-item flex items-center py-2">Home</div>
+                        <div className="sidebar-item flex items-center py-2 my-1">Home</div>
                       </Link>
-                      <Link to="/booking">
-                        <div className="sidebar-item flex items-center py-2">FBS</div>
+                      <Link to="/map">
+                        <div className="sidebar-item flex items-center py-2 my-1">Map</div>
                       </Link>
                       <Link to="/marketplace">
-                        <div className="sidebar-item flex items-center py-2">Marketplace</div>
+                        <div className="sidebar-item flex items-center py-2 my-1">Marketplace</div>
                       </Link>
                     </div>
+                    <Route path="/map" render={() => <iframe className="flex-1" src="https://ustmap.netlify.com/"/>}/>
                   </div>
                 </Route>
               ] :

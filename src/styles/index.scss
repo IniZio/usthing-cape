@@ -44,9 +44,14 @@
 }
 
 // Native fonts
+// * {
+//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
+//     Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+// }
+
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,700;Roboto:400,700');
 * {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
-    Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Dosis', 'Roboto';
 }
 
 /**

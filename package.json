@@ -91,6 +91,7 @@
     "ramda": "^0.25.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
+    "react-feather": "^1.1.0",
     "react-router-dom": "^4.2.2",
     "react-router-util": "^0.6.0",
     "skygear": "^1.4.0",

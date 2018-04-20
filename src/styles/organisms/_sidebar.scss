@@ -1,5 +1,5 @@
 .sidebar {
-  @apply .bg-grey-lightest .text-grey-dark .h-screen .w-64 .py-4 .text-xs .font-medium;
+  @apply .bg-white .text-grey-dark .h-screen .w-24 .py-4 .border-r .shadow;
 
   .sidebar-item {
     @apply .px-8 .w-full .text-grey-dark;

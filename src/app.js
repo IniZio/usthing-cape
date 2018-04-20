@@ -22,7 +22,7 @@ const App = withRouter(({location}) => (
                   to={decodeURIComponent(queryString.parse(location.search).redirect) || '/'}
                 />,
                 <Route key="main">
-                  <div className="flex">
+                  <div className="flex bg-grey-lightest">
                     <Sidebar user={user}/>
                     <Route path="/map" render={() => <iframe className="flex-1" src="https://ustmap.netlify.com/"/>}/>
                   </div>

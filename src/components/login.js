@@ -1,32 +1,27 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import {Subscribe} from 'unstated'
 
 import {Form} from '../primitives'
 import AuthContainer from '../containers/auth'
 
-class Login extends Component {
-  state = {
-    username: '',
-    password: ''
-  }
-
-  handleLogin = e => {
+const Login = ({login}) => {
+  const handleLogin = (e, form) => {
     e.preventDefault()
     try {
-      this.props.login(this.state)
+      login(form)
     } catch (err) {
       console.error(err)
     }
   }
 
-  render() {
-    return (
-      <div className="flex w-full h-screen justify-center items-center">
+  return (
+    <div className="flex w-full h-screen justify-center items-center">
+      <div className="card w-auto">
+        <h2 className="font-black text-4xl text-grey-darkest">Login</h2>
         <Form
-          className="card w-auto"
-          // style={{minWidth: '350px'}}
-          onSubmit={this.handleLogin}
+          style={{minWidth: '350px'}}
+          onSubmit={handleLogin}
           schema={[
             {field: 'username'},
             {field: 'password', type: 'password'},
@@ -34,8 +29,8 @@ class Login extends Component {
           ]}
         />
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 Login.defaultProps = {

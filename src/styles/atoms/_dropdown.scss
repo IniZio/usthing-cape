@@ -1,6 +1,6 @@
 .dropdown {
-  @apply .absolute .block .invisible .opacity-0 .z-50 .card .border-transparent .bg-white .px-4 .py-2 .text-sm .font-bold .shadow .rounded-none .border .border-grey-light;
-  min-width: 200px;
+  @apply .absolute .block .invisible .opacity-0 .z-50 .card .border-transparent .bg-white .px-4 .py-1 .text-sm .font-bold .shadow .rounded-none .border .border-grey-light;
+  min-width: 150px;
   opacity: 0;
   transition: visiblity 0.5s linear, opacity 0.2s linear;
 

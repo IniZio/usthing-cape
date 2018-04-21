@@ -24,7 +24,9 @@ const App = withRouter(({location}) => (
                 <Route key="main">
                   <div className="flex bg-grey-lightest">
                     <Sidebar user={user}/>
-                    <Route path="/map" render={() => <iframe className="flex-1" src="https://ustmap.netlify.com/"/>}/>
+                    <div className="flex-1 flex max-h-screen min-h-screen">
+                      <Route path="/map" render={() => <iframe className="flex-1" src="https://ustmap.netlify.com/"/>}/>
+                    </div>
                   </div>
                 </Route>
               ] :

@@ -40,9 +40,9 @@ class Form extends Component {
   shouldComponentUpdate = () => false
 
   render() {
-    const {mapper, schema, value, onChange, inline, stack, className, ...rest} = this.props
+    const {mapper, schema, value, onChange, onSubmit, inline, stack, className, ...rest} = this.props
     return (
-      <form {...rest} onChange={e => onChange(e, this.state.form)} className={classnames(className, {'inline-flex': inline})}>
+      <form {...rest} onChange={e => onChange(e, this.state.form)} onSubmit={e => onSubmit(e, this.state.form)} className={classnames(className, {'inline-flex': inline})}>
         {
           this.props.children ||
           this.state.schema.map((spec, key) => {
@@ -59,7 +59,10 @@ class Form extends Component {
                     name={field}
                     value={this.state.form[field]}
                     onChange={({target: {value}}) => {
-                      this.setState({form: {[field]: value}})
+                      this.setState(state => {
+                        state.form[field] = value
+                        return state
+                      })
                       this.props.onChange({...this.state.form, [field]: value})
                     }}
                     {...spec}
@@ -80,6 +83,7 @@ Form.defaultProps = {
   mapper: () => {},
   value: {},
   onChange: () => {},
+  onSubmit: () => {},
   inline: false,
   className: '',
   children: null,
@@ -92,6 +96,7 @@ Form.propTypes = {
   value: PropTypes.object,
   className: PropTypes.string,
   onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
   inline: PropTypes.bool,
   stack: PropTypes.bool,
   children: PropTypes.element

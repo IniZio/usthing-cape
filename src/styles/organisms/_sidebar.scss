@@ -1,16 +1,17 @@
 .sidebar {
-  @apply .bg-white .text-grey-dark .h-screen .w-24 .py-4 .border-r .shadow;
+  @apply .bg-white .text-grey-dark .h-screen .py-4 .border-r .shadow;
+  width: 4.5rem;
 
   .sidebar-item {
-    @apply .px-8 .w-full .text-grey-dark;
-    transition: background 0.2s ease;
+    @apply .px-6 .w-full .text-grey-dark;
+    transition: background 0.3s ease;
 
     &:hover {
-      @apply .bg-grey-lighter;
+      @apply .bg-grey-lightest;
     }
 
     &:active {
-      @apply .bg-grey-light;
+      @apply .bg-grey-lighter;
     }
   }
 

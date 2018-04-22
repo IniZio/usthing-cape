@@ -1,0 +1,17 @@
+.tag {
+  @apply .border-primary-light .border .bg-primary-light .font-medium .text-white .rounded .px-2 .m-1 .leading-normal .cursor-pointer .flex .items-center;
+  & > :first-child:not(:last-child) {
+    @apply .mr-1;
+  }
+  & > :last-child {
+    @apply .ml-1;
+  }
+
+  &.tag-checkable {
+    @apply .border-grey-lighter .bg-grey-lightest .text-grey-darker;
+  }
+
+  &.tag-checked {
+    @apply .border-primary .bg-primary .text-white;
+  }
+}

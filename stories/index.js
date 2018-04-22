@@ -1,6 +1,7 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
+import {X} from 'react-feather'
 
 import '../src/styles/index.scss'
 import './styles.scss'
@@ -131,4 +132,12 @@ storiesOf('Form', module)
   ))
   .add('Stack', () => (
     <Form schema={schema} stack/>
+  ))
+
+storiesOf('Tag', module)
+  .add('Default', () => (
+    <div className="flex">
+      <div className="tag tag-checkable">ABC</div>
+      <div className="tag">XYZ<X size={15}/></div>
+    </div>
   ))

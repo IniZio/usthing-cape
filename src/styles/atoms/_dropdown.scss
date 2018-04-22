@@ -1,5 +1,5 @@
 .dropdown {
-  @apply .absolute .block .invisible .opacity-0 .z-50 .card .border-transparent .bg-white .px-4 .py-1 .text-sm .font-bold .shadow .rounded-none .border .border-grey-light;
+  @apply .absolute .block .invisible .opacity-0 .z-50 .card .border-transparent .bg-white .px-4 .py-1 .text-sm .font-bold .shadow .rounded .border .border-grey-light;
   min-width: 150px;
   opacity: 0;
   transition: visiblity 0.5s linear, opacity 0.2s linear;
@@ -51,11 +51,16 @@
 
 html:active [data-trigger="click"]:not(:hover) + .dropdown:not(:hover),
 .dropdown-hide {
-  display: none;
+  // @apply .hidden;
+  @apply .invisible .opacity-0;
+}
+
+.dropdown:not(:hover) {
+  transition: all 0.2s linear;
 }
 
 [data-trigger="click"]:active,
-[data-trigger="click"]:focus,
+[data-trigger="click"]:focus
  {
   & + .dropdown {
     transition: all 0s;

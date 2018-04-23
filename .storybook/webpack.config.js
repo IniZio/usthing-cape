@@ -26,7 +26,8 @@ module.exports = {
       //   test: /\.css$/,
       //   include: [
       //     path.resolve(__dirname, '../src'),
-      //     path.resolve(__dirname, '../node_modules/tailwindcss')
+      //     // path.resolve(__dirname, '../node_modules/tailwindcss'),
+      //     // path.resolve(__dirname, '../node_modules/rc-select')
       //   ],
       //   use: [
       //     'style-loader',

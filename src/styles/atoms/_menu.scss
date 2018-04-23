@@ -12,7 +12,12 @@ ul > * {
 */
 
 ol,
-ul {
+ul,
+.menu {
+  & > li {
+    transition: background 0.2s ease;
+  }
+
   & > li > a {
     @apply .text-grey-darker .list-reset;
   }
@@ -28,13 +33,14 @@ ul.menu-horizontal {
     @apply .mx-4 .px-2;
     position: relative;
     text-decoration: none;
+
     > a {
       @apply .w-full .h-full .flex .items-center;
     }
   }
 
   & > li:before {
-    @apply .invisible .absolute .w-full .h-px .bg-grey-darker;
+    @apply .invisible .absolute .w-full .h-px .bg-grey-dark;
     content: "";
     bottom: 0;
     left: 0;
@@ -46,6 +52,16 @@ ul.menu-horizontal {
     transform: scaleX(1);
   }
   & > li:active:before {
-    @apply .bg-grey-darkest;
+    @apply .bg-grey-darker;
+  }
+}
+
+.menu {
+  & > li:active, .menu-active {
+    @apply .bg-grey-lighter .rounded;
+  }
+
+  & > li:hover {
+    @apply .bg-grey-lightest .w-full .rounded;
   }
 }

@@ -1,11 +1,13 @@
 import Button from './button'
 import Input from './input'
 import Form from './form'
+import Select from './select'
 
 export {
   Button,
   Input,
-  Form
+  Form,
+  Select
 }
 
 export default null

@@ -5,7 +5,7 @@ import {X} from 'react-feather'
 
 import '../src/styles/index.scss'
 import './styles.scss'
-import {Button, Input, Form} from '../src/primitives'
+import {Button, Input, Form, Select} from '../src/primitives'
 
 storiesOf('Button', module)
   .add('Default', () => (
@@ -140,4 +140,15 @@ storiesOf('Tag', module)
       <div className="tag tag-checkable">ABC</div>
       <div className="tag">XYZ<X size={15}/></div>
     </div>
+  ))
+
+storiesOf('Select', module)
+  .add('Default', () => (
+    <Select className="w-48" choices={[
+      {label: 'ABC', value: 'abc'},
+      {label: 'Xyz', value: 10},
+      {label: 'Magic'},
+      {value: 11},
+      40
+    ]} multiple/>
   ))

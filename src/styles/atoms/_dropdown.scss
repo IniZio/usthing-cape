@@ -1,5 +1,5 @@
 .dropdown {
-  @apply .absolute .block .invisible .opacity-0 .z-50 .card .border-transparent .bg-white .px-4 .py-1 .text-sm .font-bold .shadow .rounded .border .border-grey-light;
+  @apply .absolute .block .invisible .opacity-0 .z-50 .card .border-transparent .bg-white .px-0 .py-1 .text-sm .font-bold .shadow .rounded .border .border-grey-light;
   min-width: 150px;
   opacity: 0;
   transition: visiblity 0.5s linear, opacity 0.2s linear;
@@ -8,23 +8,19 @@
     @apply .block .visible .opacity-100;
   }
 
-  & .dropdown-menu,
+  & .dropdown-menu {
+    @extend .menu;
+  }
+
+  .dropdown-menu,
   & ul,
   & ol {
     @apply .m-0;
 
     // list item
     & li {
-      @apply .h-12 .text-grey-darker .border-b-2 .border-transparent .cursor-pointer .align-middle .flex .items-center;
+      @apply .h-12 .px-4 .text-grey-darker .border-transparent .cursor-pointer .align-middle .flex .items-center;
       transition: opacity 0.1s ease, border .2s ease;
-    }
-
-    & li:hover {
-      @apply .border-grey-lightest;
-    }
-
-    & li:active {
-      @apply .border-grey;
     }
 
     & li.menu-header {
@@ -51,16 +47,16 @@
 
 html:active [data-trigger="click"]:not(:hover) + .dropdown:not(:hover),
 .dropdown-hide {
-  // @apply .hidden;
-  @apply .invisible .opacity-0;
+  // @apply .invisible .opacity-0;
+  @apply .hidden;
 }
 
-.dropdown:not(:hover) {
-  transition: all 0.2s linear;
-}
+// .dropdown:not(:hover) {
+//   transition: all 0.2s linear;
+// }
 
 [data-trigger="click"]:active,
-[data-trigger="click"]:focus
+// [data-trigger="click"]:focus
  {
   & + .dropdown {
     transition: all 0s;

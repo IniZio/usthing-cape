@@ -10,6 +10,8 @@ module.exports = async clipped => {
   // BUG: jointed corrupts postcss plugin e.g tailwindcss, therefore using postcss.config.js for options for now
   clipped.config.webpack.module.rules.scss.use.postcss = require.resolve('postcss-loader')
 
+  clipped.config.webpack.add('module.rules.css.include.rc-select', path.resolve(__dirname, 'node_modules/rc-select'))
+
   clipped.config.webpack['module.rules.node'] = {
     test: /\.node$/,
     include: [path.resolve(__dirname, 'node_modules/keytar')],
